@@ -15,7 +15,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    // str() equivale a Str::of
+    // cria um objeto com funções de string
+    // upper, apend, slug...
+
+    return str('hello world')->upper();
+
+    //return view('welcome');
+})->name('home');
+
+Route::get('/endpoint', function () {
+    return to_route('home');
+
+    // equivalente à:
+    // return redirect()->route('home');
 });
 
 //Controller route groups 
