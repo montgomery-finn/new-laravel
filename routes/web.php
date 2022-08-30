@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostsController;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +31,10 @@ Route::get('/endpoint', function () {
 
     // equivalente à:
     // return redirect()->route('home');
+});
+
+Route::get('bladestring', function () {
+    return Blade::render('{{ $greeting }}', ['greeting' => 'Hello']);
 });
 
 //Controller route groups 
